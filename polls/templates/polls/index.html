@@ -1,0 +1,158 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>JSONEditor | Item templates</title>
+
+  <link href="{% static "polls/_css/jsoneditor.min.css" %}" rel="stylesheet" type="text/css">
+  <script src="{% static "polls/_js/jsoneditor.js" %}"> </script>
+
+  <style type="text/css">
+    body {
+      width: 600px;
+      font: 11pt sans-serif;
+    }
+    #jsoneditor {
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="jsoneditor"></div>
+
+<script>
+
+  var json = 
+{
+    "1":{
+        "CHR":"{u_chr}",
+        "SNP":"{u_rs_id}",
+        "BP":"{u_bp}",
+        "A1":"{u_ea}",
+        "A2":"{u_ra}",
+        "FRQ":"{u_freq_ea}",
+        "BETA":"{u_beta}",
+        "SE":"{u_se}",
+        "P":"{u_p}",
+        "INFO":"{u_info}"
+    },
+    "2":{
+        "SNP":"{u_chr}:{u_bp}:{u_ea}_{u_ra}",
+        "A1":"{u_polymorphism_type}",
+        "FRQ":"{u_freq_ea}",
+        "BETA":"{u_beta}",
+        "SE":"{u_se}",
+        "P":"{u_p}",
+        "INFO":"{u_info}"
+    },
+    "3": {
+        "SNP": "{u_chr}:{u_bp}:{u_ea}_{u_ra}",
+        "A2": "{u_polymorphism_type}",
+        "FRQ": "{u_freq_ea}",
+        "BETA": "{u_beta}",
+        "SE": "{u_se}",
+        "P": "{u_p}",
+        "INFO": "{u_info}"
+    },
+    "4": {
+        "SNP": "{u_chr}:{u_bp}:{u_ea}",
+        "A1": "{u_polymorphism_type}",
+        "FRQ": "{u_freq_ea}",
+        "BETA": "{u_beta}",
+        "SE": "{u_se}",
+        "P": "{u_p}",
+        "INFO": "{u_info}"
+    },
+    "5": {
+        "SNP": "{u_chr}:{u_bp}:{u_ea}",
+        "A2": "{u_polymorphism_type}",
+        "FRQ": "{u_freq_ea}",
+        "BETA": "{u_beta}",
+        "SE": "{u_se}",
+        "P": "{u_p}",
+        "INFO": "{u_info}"
+    },
+    "6": {
+        "SNP": "{u_chr}:{u_bp}",
+        "A1": "{u_ea}",
+        "A2": "{u_ra}",
+        "FRQ": "{u_freq_ea}",
+        "BETA": "{u_beta}",
+        "SE": "{u_se}",
+        "P": "{u_p}",
+        "INFO": "{u_info}"
+    },
+    "7":{
+        "CHR":"{u_chr}",
+        "SNP":"{u_rs_id}",
+        "BP":"{u_bp}",
+        "A1":"{u_polymorphism_type}",
+        "FRQ":"{u_freq_ea}",
+        "BETA":"{u_beta}",
+        "SE":"{u_se}",
+        "P":"{u_p}",
+        "INFO":"{u_info}"
+    },
+    "8":{
+        "CHR":"{u_chr}",
+        "SNP":"{u_rs_id}",
+        "A2":"{u_polymorphism_type}",
+        "BP":"{u_bp}",        
+        "FRQ":"{u_freq_ea}",
+        "BETA":"{u_beta}",
+        "SE":"{u_se}",
+        "P":"{u_p}",
+        "INFO":"{u_info}"
+    },
+    "service":{
+        "log_p":0,
+        "log_beta":0,
+        "n":3394
+    }
+};
+
+var options = {
+    templates: [
+        {
+          text: 'service',
+          title: 'Insert service fields',
+          className: 'jsoneditor-type-object',
+          field: 'ServiceTemplate',
+          value: {
+              'log_p': 0,
+              'log_beta': 0,
+              'n': 0
+          }
+        },
+        {
+          text: 'simple_level',
+          title: 'Insert simple single level parser',
+          className: 'jsoneditor-type-object',
+          field: 'ServiceTemplate',
+          value: {
+                "CHR":"{u_chr}",
+                "SNP":"{u_rs_id}",
+                "BP":"{u_bp}",
+                "A1":"{u_ea}",
+                "A2":"{u_ra}",
+                "FRQ":"{u_freq_ea}",
+                "BETA":"{u_beta}",
+                "SE":"{u_se}",
+                "P":"{u_p}",
+                "INFO":"{u_info}"
+                }
+        }
+    ],
+    mode: 'tree',
+};
+
+  // create the editor
+  var container = document.getElementById('jsoneditor');
+  var editor = new JSONEditor(container, options, json);
+  editor.expandAll();
+</script>
+</body>
+</html>
